@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Etudiants{% endblock %}
+
+{% block body %}
+    <div class="divide-y divide-slate-500">
+        <div class="flex items-center block py-2 px-4">
+            <a class="w-1/2">Nom</a>
+            <a class="w-1/2">Prenom</a>
+        </div>
+        {% for e in pEtudiants %}
+            <a href="{{ path('detailEtudiant', { 'id': e.id }) }}" class="block py-2 px-4 hover:bg-slate-100">
+                <div class="flex items-center">
+                    <div class="w-1/2">{{ e.nom }}</div>
+                    <div class="w-1/2">{{ e.prenom }}</div>
+                </div>
+            </a>
+        {% else %}
+            <div class="py-2 px-4">Aucun étudiant n'a été trouvé.</div>
+        {% endfor %}
+    </div>
+
+
+
+{% endblock %}

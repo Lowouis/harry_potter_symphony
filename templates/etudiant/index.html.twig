@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Etudiants{% endblock %}
+
+{% block body %}
+
+    <div class="max-w-xl mx-auto bg-white shadow-md rounded-lg overflow-hidden my-8">
+        <!-- En-tête de la fiche étudiant -->
+        <div class="bg-gray-800 text-white text-center py-4">
+            <h2 class="text-2xl font-semibold">Fiche Étudiant</h2>
+        </div>
+
+        <!-- Contenu de la fiche étudiant -->
+        <div class="p-4">
+            <!-- Photo de profil avec badge -->
+            <div class="relative">
+                <img src="{{ asset("assets/img/profils/"~etudiant.id~".jpg") }}" alt="Photo de profil de {{ etudiant.nom }}" class="w-32 h-32 object-cover rounded-full">
+
+                <!-- Badge -->
+                <div class="absolute top-0 right-0 text-white p-1 rounded-full">
+                    <img src="{{ asset("assets/img/maison/"~etudiant.maison.id~".jpg") }}" alt="Badge" class="w-16 h-16">
+                </div>
+            </div>
+
+            <!-- Informations personnelles -->
+            <div class="mt-4">
+                <p class="text-lg font-semibold">{{ etudiant.nom }} {{ etudiant.prenom }}</p>
+                <p class="text-sm text-gray-600">Date de Naissance: {{ etudiant.getDateNaissFormated }}</p>
+                <p class="text-sm text-gray-600">Promotion: {{ etudiant.promotion.libelle }}</p>
+                <p class="text-sm text-gray-600">Maison : {{ etudiant.maison.nom }}</p>
+            </div>
+
+            <!-- Autres informations -->
+            <div class="mt-4">
+                <!-- Ajoutez d'autres informations ici selon vos besoins -->
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
